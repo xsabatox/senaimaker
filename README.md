@@ -71,6 +71,7 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define Z_MIN_ENDSTOP_INVERTING true
 #define Z_MAX_ENDSTOP_INVERTING true
 ```
+### Movement Settings
 
 - Defina os valores padrão de passos por unidade de medida (mm), para o eixo X, eixo Y, eixo Z e extrusora, respectivamente. Este valores devem ser calibrados. 
     - Para calibrar o motor de passo da extrusora deve-se comparar a medida do filamento movimentado pelo motor de passo da extrusora (sem passar pelo bloco aquecedor ou a cabeça de impressão) e a medida descrita no firmware. 
@@ -80,4 +81,15 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 
 ```
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
+```
+
+[...]
+
+
+### LCD Controller Section
+
+- Defina o tipo de tela LCD da impressora. Descubra o modelo da sua tela LCD para alterar esta variável, no exemplo abaixo está declarado o modelo RepRap (tela azul com caracteres brancos):
+
+```
+#define REPRAP_DISCOUNT_SMART_CONTROLLER
 ```
