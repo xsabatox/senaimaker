@@ -119,6 +119,18 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define LCD_BED_LEVELING
 ```
 
+- Habilite o armazenamento persistente das configurações entre reinícios da impressora:
+
+```
+#define EEPROM_SETTINGS 
+```
+
+- Habilite o contador para manter registro de dados estatísticos como total de impressões, total de impressões bem sucedidas, total de impressões mal sucedidas, tempo total de impressão:
+
+```
+#define PRINTCOUNTER
+```
+
 [...]
 
 
