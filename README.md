@@ -64,7 +64,7 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define PIDTEMPBED
 ```
 
-- Defina a temperatura mínima para o funcionamento da extrusora:
+- Determine a temperatura mínima para o funcionamento da extrusora:
 
 ```
 #define EXTRUDE_MINTEMP 170
@@ -86,7 +86,7 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 
 > :warning: **ATENÇÃO! Caso você tenha habilitado o EEPROM (#define EEPROM_SETTINGS) os valores salvos lá sobreescreverão os definidos aqui!**
 
-- Defina os valores padrão de passos por unidade de medida (mm), para o eixo X, eixo Y, eixo Z e extrusora, respectivamente. Este valores devem ser calibrados. 
+- Determine os valores padrão de passos por unidade de medida (mm), para o eixo X, eixo Y, eixo Z e extrusora, respectivamente. Este valores devem ser calibrados. 
     - Para calibrar o motor de passo da extrusora deve-se comparar a medida do filamento movimentado pelo motor de passo da extrusora (sem passar pelo bloco aquecedor ou a cabeça de impressão) e a medida descrita no firmware. 
     - Para calibrar os motores dos eixos X, Y e Z deve-se imprimir um cubo para verificar a diferença entre as medidas do impresso e a medida descrita no modelo 3D.
 
@@ -94,7 +94,7 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 } // X, Y, Z, E0
 ```
 
-- Caso o movimento de algum motor de passo esteja invertido, inverta o conector do motor na placa de impressão ou inverta o movimento via firmware (no exemplo abaixo o motor do eixo Y foi invertido):
+- Caso o movimento de algum motor de passo esteja invertido, inverta o conector do motor na placa de impressão ou inverta o movimento via firmware (no exemplo abaixo o motor de passo do eixo Y foi invertido):
 ```
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
@@ -119,24 +119,35 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define LCD_BED_LEVELING
 ```
 
+### Additional Features
+
 - Habilite o armazenamento persistente das configurações entre reinícios da impressora:
 
 ```
 #define EEPROM_SETTINGS 
 ```
 
-- Habilite o contador para manter registro de dados estatísticos como total de impressões, total de impressões bem sucedidas, total de impressões mal sucedidas, tempo total de impressão:
+### LCD and SD Support
+
+- Determine a linguagem usada na tela LCD:
 
 ```
-#define PRINTCOUNTER
+#define LCD_LANGUAGE pt_br
 ```
 
-[...]
+- Habilite o suporte a cartão SD:
 
+```
+#define SDSUPPORT
+```
 
-### LCD Controller Section
+- Habilite a verificação cíclica de redundância (CRC) do cartão SD:
 
-- Defina o tipo de tela LCD da impressora. Descubra o modelo da sua tela LCD para alterar esta variável, no exemplo abaixo está declarado o modelo RepRap (tela azul com caracteres brancos):
+```
+#define SD_CHECK_AND_RETRY
+```
+
+- Determine o tipo de tela LCD da impressora. Descubra o modelo da sua tela LCD para alterar esta variável, no exemplo abaixo está declarado o modelo RepRap (tela azul com caracteres brancos):
 
 ```
 #define REPRAP_DISCOUNT_SMART_CONTROLLER
