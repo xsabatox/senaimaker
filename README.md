@@ -16,39 +16,49 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 
 ### Getting Started
 
-- Defina o nome da impressora:
+- Determine as informações do autor das alterações no arquivo de configuração:
+
+``` 
+#define STRING_CONFIG_H_AUTHOR "(nome do autor, SENAI config)"
+``` 
+
+- Determine o nome da impressora:
 
 ``` 
 #define CUSTOM_MACHINE_NAME "Senai Maker"
 ```
 
-- Defina o identificador único universal (UUID), que você pode gerar no endereço https://www.uuidgenerator.net/ (necessário para usar a impressora com junto com o OctoPrint):
+- Determine o identificador único universal - UUID (necessário para usar a impressora com junto com o OctoPrint):
+
+> :information_source: Você pode gerar no endereço https://www.uuidgenerator.net/ 
 
 ```
 #define MACHINE_UUID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-- Defina o tipo do driver do motor Z2. Descubra o modelo do seu driver para alterar esta variável, no exemplo abaixo está declarado o tipo A4988:
+- Determine o tipo do driver do motor Z2. Descubra o modelo do seu driver para alterar esta variável, no exemplo abaixo está declarado o tipo A4988:
 
 ```
 #define Z2_DRIVER_TYPE A4988
 ```
+
 ### Thermal Settings
 
-- Defina o sensor de temperatura da mesa aquecida:
+- Habilite o sensor de temperatura da mesa aquecida:
 
 ```
 #define TEMP_SENSOR_BED 1
 ```
+
 ### PID Settings
 
-- Defina o controle de temperatura da extrusora por PID (Proporção, Integral e Derivada):
+- Habilite o controle de temperatura da extrusora por PID (Proporção, Integral e Derivada):
 
 ```
 #define PIDTEMP
 ```
 
-- Defina o controle de temperatura da mesa aquecida por PID (Proporção, Integral e Derivada):
+- Habilite o controle de temperatura da mesa aquecida por PID (Proporção, Integral e Derivada):
 
 ```
 #define PIDTEMPBED
@@ -57,13 +67,14 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 - Defina a temperatura mínima para o funcionamento da extrusora:
 
 ```
-#define EXTRUDE_MINTEMP 190
+#define EXTRUDE_MINTEMP 170
 ```
+
 ### Endstop Settings
 
-- Se ao solicitar um retorno à origem (auto home) algum motor de passo não esteja chegando ao fim de curso, inverta a lógica do fim de curso. No caso abaixo, todos foram invertidos:
+- Se ao solicitar um retorno à origem (auto home) algum motor de passo não esteja chegando ao fim de curso, inverta a lógica do fim de curso (no exemplo abaixo todos foram invertidos):
 
-> :information_source: **O Z_MAX_ENDSTOP foi usado como fim de curso do segundo motor do eixo Z.**
+> :information_source: O Z_MAX_ENDSTOP foi usado como fim de curso do segundo motor do eixo Z.
 
 ```
 #define X_MIN_ENDSTOP_INVERTING true
@@ -73,14 +84,39 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 ```
 ### Movement Settings
 
+> :warning: **ATENÇÃO! Caso você tenha habilitado o EEPROM (#define EEPROM_SETTINGS) os valores salvos lá sobreescreverão os definidos aqui!**
+
 - Defina os valores padrão de passos por unidade de medida (mm), para o eixo X, eixo Y, eixo Z e extrusora, respectivamente. Este valores devem ser calibrados. 
     - Para calibrar o motor de passo da extrusora deve-se comparar a medida do filamento movimentado pelo motor de passo da extrusora (sem passar pelo bloco aquecedor ou a cabeça de impressão) e a medida descrita no firmware. 
     - Para calibrar os motores dos eixos X, Y e Z deve-se imprimir um cubo para verificar a diferença entre as medidas do impresso e a medida descrita no modelo 3D.
 
-> :warning: **ATENÇÃO! Caso você tenha habilitado o EEPROM (#define EEPROM_SETTINGS) os valores salvos lá sobreescreverão os definidos aqui!**
+```
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 } // X, Y, Z, E0
+```
+
+- Caso o movimento de algum motor de passo esteja invertido, inverta o conector do motor na placa de impressão ou inverta o movimento via firmware (no exemplo abaixo o motor do eixo Y foi invertido):
+```
+#define INVERT_X_DIR false
+#define INVERT_Y_DIR true
+#define INVERT_Z_DIR false
+```
+
+- Habilite a sondagem manual para nivelar a mesa aquecida sem uma sonda:
 
 ```
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
+#define PROBE_MANUALLY
+```
+
+- Habilite o nivelamento da mesa aquecida em malha/grid:
+
+```
+#define MESH_BED_LEVELING
+```
+
+- Habilite o sub-menu de nivelamento da mesa aquecida no painel LCD:
+
+```
+#define LCD_BED_LEVELING
 ```
 
 [...]
