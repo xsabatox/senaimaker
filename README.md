@@ -147,7 +147,7 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define SD_CHECK_AND_RETRY
 ```
 
-- Determine o tipo de tela LCD da impressora. Descubra o modelo da sua tela LCD para alterar esta variável, no exemplo abaixo está declarado o modelo RepRap (tela azul com caracteres brancos):
+- Determine o tipo de tela LCD da impressora. O exemplo abaixo está declarado o modelo RepRap (tela azul com caracteres brancos):
 
 ```
 #define REPRAP_DISCOUNT_SMART_CONTROLLER
