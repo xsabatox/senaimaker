@@ -75,7 +75,7 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 - Determine a temperatura mínima para o funcionamento da extrusora:
 
 ```
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 180
 ```
 
 ### Endstop Settings
