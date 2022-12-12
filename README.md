@@ -175,10 +175,6 @@ Configuration_adv.h
 
 ```
 #define Z_MULTI_ENDSTOPS
-```
-
-- Habilite o auto alinhamento do eixo Z:
-
-```
-#define Z_STEPPER_AUTO_ALIGN
+  #if ENABLED(Z_MULTI_ENDSTOPS)
+    #define Z2_USE_ENDSTOP   _ZMAX_
 ```
