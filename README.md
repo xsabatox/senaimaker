@@ -12,6 +12,8 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 
 - Extraia o arquivo Marlin-bugfix-2.1.x.zip a pasta Marlin-bugfix-2.1.x no VSCode.
 
+---
+
 ## Configuration.h
 
 ### Getting Started
@@ -50,6 +52,12 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 #define TEMP_SENSOR_BED 1
 ```
 
+- Determine uma janela de tempo maior para o aquecimento da mesa aquecida:
+
+```
+ #define TEMP_BED_RESIDENCY_TIME 20
+```
+
 ### PID Settings
 
 - Habilite o controle de temperatura da extrusora por PID (Proporção, Integral e Derivada):
@@ -71,6 +79,12 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 ```
 
 ### Endstop Settings
+
+- Habilite o fim de curso do segundo motor de passo do eixo Z:
+
+```
+#define USE_ZMAX_PLUG
+```
 
 - Se ao solicitar um retorno à origem (auto home) algum motor de passo não esteja chegando ao fim de curso, habilite a inversão da lógica do fim de curso (no exemplo abaixo todos foram invertidos):
 
@@ -151,4 +165,20 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 
 ```
 #define REPRAP_DISCOUNT_SMART_CONTROLLER
+```
+
+---
+
+Configuration_adv.h
+
+- Habilite múltiplos fim de curso para o eixo Z:
+
+```
+#define Z_MULTI_ENDSTOPS
+```
+
+- Habilite o auto alinhamento do eixo Z:
+
+```
+#define Z_STEPPER_AUTO_ALIGN
 ```
