@@ -80,6 +80,8 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 
 ### Endstop Settings
 
+> :information_source: O Z_MAX foi usado como fim de curso do segundo motor do eixo Z.
+
 - Habilite o fim de curso do segundo motor de passo do eixo Z:
 
 ```
@@ -87,8 +89,6 @@ Este é um guia para a configuração e utilização da impressora 3D Senai Make
 ```
 
 - Se ao solicitar um retorno à origem (auto home) algum motor de passo não esteja chegando ao fim de curso, habilite a inversão da lógica do fim de curso (no exemplo abaixo todos foram invertidos):
-
-> :information_source: O Z_MAX_ENDSTOP foi usado como fim de curso do segundo motor do eixo Z.
 
 ```
 #define X_MIN_ENDSTOP_INVERTING true
