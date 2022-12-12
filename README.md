@@ -176,5 +176,5 @@ Configuration_adv.h
 ```
 #define Z_MULTI_ENDSTOPS
   #if ENABLED(Z_MULTI_ENDSTOPS)
-    #define Z2_USE_ENDSTOP   _ZMAX_
+    #define Z2_USE_ENDSTOP   _ZMAX_ // Mudar de _XMAX_ para _ZMAX_
 ```
